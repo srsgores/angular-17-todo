@@ -15,7 +15,7 @@ export interface NavItem {
 })
 export class NavigationComponent {
 	navItems: NavItem[] = [
-		{title: "Home", url: "/"},
+		{title: "About", url: "/about"},
 		{title: "Todos", url: "/todos"},
 	]
 }
