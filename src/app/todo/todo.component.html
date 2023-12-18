@@ -1,7 +1,7 @@
 <li class="todo" [class.completed]="todo.isComplete">
 	<label>
 		<span class="visuallyhidden">Todo Name</span>
-		<input type="text" required #todoName [(ngModel)]="todo.name"/>
+		<textarea class="todo-name-input" type="text" required #todoName [(ngModel)]="todo.name" (blur)="dataService.saveTodos()" [rows]="todo.name.length / 15"></textarea>
 	</label>
 	<ng-content/>
 	<ul class="actions">
@@ -13,6 +13,8 @@
 					✅
 				}
 			</button>
+		</li>
+		<li class="action">
 			<button type="button" (click)="dataService.removeTodo(index)">
 				Remove Todo ❌
 			</button>

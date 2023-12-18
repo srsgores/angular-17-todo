@@ -28,7 +28,7 @@ export class DataService {
 		todo.isComplete = !todo.isComplete;
 	}
 
-	private saveTodos() {
+	saveTodos() {
 		this.storage.set("todos", JSON.stringify(this.todos));
 	}
 	createTodo(todo: Todo = DEFAULT_TODO) {
