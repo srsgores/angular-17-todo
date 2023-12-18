@@ -17,5 +17,8 @@
 	--global-background-colour: #2D2D2D;
 	/* flow */
 	--flow-block-spacing: 2.5rem;
-	--flow-inline-spacing: 2.5rem;
+	--flow-inline-spacing: 1.25rem;
+
+	/* prose */
+	--prose-max-width: 70ch;
 }

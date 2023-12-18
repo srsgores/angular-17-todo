@@ -1,0 +1,44 @@
+:host {
+	display: block;
+	position: relative;
+	inset: 0;
+	--pane-background-colour: rgba(30, 31, 34, 0.52);
+	--pane-padding: 1.5rem;
+	--pane-border-radius: calc(var(--pane-padding) / 2);
+	--pane-border-colour: rgba(255, 255, 255, 0.37);
+	--pane-border-width: 1px;
+	--pane-border-style: solid;
+	--pane-shadow:  2rem 2rem 4rem #bebebe, -2rem -2rem 4rem #ffffff;
+
+	background-color: var(--pane-background-colour);
+	padding: var(--pane-padding);
+	border: var(--pane-border-width) var(--pane-border-style) var(--pane-border-colour);
+	border-radius: var(--pane-border-radius);
+}
+
+:host:before {
+	content: "";
+	height: 100%;
+	z-index: -1;
+	position: absolute;
+	inset: inherit;
+	background: linear-gradient(-45deg, #000 0%, #484F606E 100%);
+	transform: translate3d(0px, 20px, 0) scale(0.95);
+	filter: blur(1.5rem);
+	opacity: 0.7;
+	transition: opacity 0.3s;
+	border-radius: inherit;
+}
+
+/*
+* Prevents issues when the parent creates a  stacking context. (For example, using the transform property )
+*/
+:host::after {
+	content: "";
+	z-index: -1;
+	position: absolute;
+	height: 100%;
+	inset: inherit;
+	background: inherit;
+	border-radius: inherit;
+}

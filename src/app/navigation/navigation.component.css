@@ -1,0 +1,27 @@
+:host {
+	--nav-item-spacing: var(--flow-inline-spacing, 1.5rem);
+	--nav-item-font-size: 1.25rem;
+	--nav-margin: 1rem;
+	margin: var(--nav-margin);
+}
+
+.nav-item {
+	display: inline-block;
+	font-size: var(--nav-item-font-size);
+}
+
+.nav-item-link[href] {
+	display: block;
+	text-decoration: underline;
+	cursor: pointer;
+	transition: 0.2s linear;
+}
+
+.nav-item-link[aria-current="page"] {
+	font-weight: bold;
+	text-underline-offset: 0.5em;
+}
+
+.nav-item + .nav-item {
+	margin-inline-start: var(--nav-item-spacing);
+}

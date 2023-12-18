@@ -2,7 +2,6 @@
 	--grid-column-width: 20rem;
 	--grid-gap: 1rem;
 	--padding: 1rem;
-	--layout-max-width: 68rem;
 }
 
 .visuallyhidden {
@@ -28,7 +27,7 @@
 }
 
 .contained {
-	max-width: var(--layout-max-width);
+	max-width: var(--prose-max-width);
 	margin-inline: auto;
 }
 
@@ -43,3 +42,12 @@
 .padded {
 	padding: var(--padding);
 }
+
+.padded-medium {
+	padding: calc(var(--padding) * 1.5);
+}
+
+.padded-large {
+	padding: calc(var(--padding) * 2);
+}
+

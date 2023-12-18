@@ -86,6 +86,10 @@ mark {
 	line-height: calc(var(--base-line-height) * 0.85);
 }
 
+.prose *:first-child {
+	margin-block-start: unset;
+}
+
 .prose p ~ p, .prose p ~ ol, .prose p ~ img {
 	margin-block-start: 1rem;
 }
