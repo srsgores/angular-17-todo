@@ -1,4 +1,6 @@
-# AngularTodo
+# Xello Angular 17 Interview App
+
+Showcase of using Angular 17 for a todo app for my interview with Xello.
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.0.7.
 
