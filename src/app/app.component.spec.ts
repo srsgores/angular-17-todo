@@ -1,29 +1,32 @@
-import { TestBed } from '@angular/core/testing';
-import { AppComponent } from './app.component';
+import {TestBed} from "@angular/core/testing";
+import {Router} from "@angular/router";
+import {RouterTestingModule} from "@angular/router/testing";
 
-describe('AppComponent', () => {
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      imports: [AppComponent],
-    }).compileComponents();
-  });
 
-  it('should create the app', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app).toBeTruthy();
-  });
+import {AppComponent} from "./app.component";
 
-  it(`should have the 'angular-todo' title`, () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app.title).toEqual('angular-todo');
-  });
+describe("AppComponent", () => {
+	let router: Router;
+	beforeEach(async () => {
+		await TestBed.configureTestingModule({
+			imports: [
+				AppComponent,
+				RouterTestingModule,
+			]
+		}).compileComponents();
+		router = TestBed.inject(Router);
+	});
 
-  it('should render title', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, angular-todo');
-  });
+	it("should create the app", () => {
+		const fixture = TestBed.createComponent(AppComponent);
+		const app = fixture.componentInstance;
+		expect(app).toBeTruthy();
+	});
+
+	it("should render the navigation", () => {
+		const fixture = TestBed.createComponent(AppComponent);
+		fixture.detectChanges();
+		const compiled = fixture.nativeElement as HTMLElement;
+		expect(compiled.querySelector("app-navigation")?.textContent).toBeDefined();
+	});
 });
