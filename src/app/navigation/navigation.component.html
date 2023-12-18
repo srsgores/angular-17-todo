@@ -1,0 +1,5 @@
+@for (navItem of navItems; track navItem.title) {
+	<li class="nav-item"><a class="nav-item-link" [routerLink]="navItem.url" routerLinkActive="active" ariaCurrentWhenActive="page">{{navItem.title}}</a></li>
+}
+
+<ng-content/>
