@@ -1,4 +1,5 @@
-import {Injectable} from "@angular/core";
+import {Injectable, inject} from "@angular/core";
+import {BrowserStorageService} from "./storage.service";
 export interface Todo {
 	createdDate: Date,
 	updatedDate?: Date,
@@ -20,12 +21,16 @@ export const DEFAULT_TODOS: Todo[] = [
 	providedIn: "root"
 })
 export class DataService {
+	storage = inject(BrowserStorageService);
 	todos: Todo[] = DEFAULT_TODOS;
 
 	toggleComplete(todo: Todo) {
 		todo.isComplete = !todo.isComplete;
 	}
 
+	private saveTodos() {
+		this.storage.set("todos", JSON.stringify(this.todos));
+	}
 	createTodo(todo: Todo = DEFAULT_TODO) {
 		let createdTodo: Todo = todo;
 		if (!createdTodo.name) {
@@ -35,9 +40,18 @@ export class DataService {
 			createdTodo.createdDate = new Date();
 		}
 		this.todos.push(createdTodo);
+		this.saveTodos();
 	}
 	removeTodo(index: number) {
 		this.todos.splice(index, 1);
-		return this.todos;
+		return this.saveTodos();
+	}
+
+	constructor() {
+		const savedTodos: string | null = this.storage.get("todos");
+		if (savedTodos?.length) {
+			const serializedTodos: Todo[] = JSON.parse(savedTodos);
+			this.todos = serializedTodos;
+		}
 	}
 }
