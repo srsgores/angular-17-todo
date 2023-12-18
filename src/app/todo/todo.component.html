@@ -1,5 +1,6 @@
 <li class="todo" [class.completed]="todo.isComplete">
 	<label>
+		<span class="visuallyhidden">Todo Name</span>
 		<input type="text" required #todoName [(ngModel)]="todo.name"/>
 	</label>
 	<ng-content/>
