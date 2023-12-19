@@ -1,5 +1,7 @@
 :host {
 	--action-inline-spacing: var(--flow-inline-spacing, 1em);
+	--todo-input-padding: 0 0.5em;
+	--todo-input-background: rgba(255, 255, 255, 0.01);
 }
 
 .todo {
@@ -11,7 +13,13 @@
 .todo-name-input {
 	font-weight: 500;
 	font-size: 1.25em;
-	height: min-content;
+	transition: 0.2s ease-in-out;
+	padding: var(--todo-input-padding);
+	background: transparent;
+}
+
+.todo-name-input:focus {
+	background: var(--todo-input-background);
 }
 
 

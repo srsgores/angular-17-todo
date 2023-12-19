@@ -1,20 +1,27 @@
+<h2 class="title manager-title centred">Todos</h2>
+
 <app-pane>
 	<form action="" method="POST">
-		<ul class="todos">
-			@if (dataService.todos.length) {
-				@for (todo of dataService.todos; track $index) {
-					<todo [todo]="todo" [index]="$index"/>
+		<fieldset>
+			<legend class="visuallyhidden">Todos</legend>
+			<ul class="todos">
+				@if (dataService.todos.length) {
+					@for (todo of dataService.todos; track $index) {
+						<li class="todo-container">
+							<todo [todo]="todo" [index]="$index"/>
+						</li>
+					}
+				} @else {
+					<dialog role="dialog" [attr.aria-labelledby]="componentId + '-noTodosFoundHeading'" [attr.aria-describedby]="componentId + '-noTodosFoundDescription'" open>
+						<h2 [id]="componentId + '-noTodosFoundHeading'">No todos found</h2>
+						<p [id]="componentId + '-noTodosFoundDescription'">Try <a href="#" (click)="dataService.createTodo()">Adding a Todo</a></p>
+					</dialog>
 				}
-			} @else {
-				<dialog role="dialog" [attr.aria-labelledby]="componentId + '-noTodosFoundHeading'" [attr.aria-describedby]="componentId + '-noTodosFoundDescription'" open>
-					<h2 [id]="componentId + '-noTodosFoundHeading'">No todos found</h2>
-					<p [id]="componentId + '-noTodosFoundDescription'">Try <a href="#" (click)="dataService.createTodo()">Adding a Todo</a></p>
-				</dialog>
-			}
-			<li>
-				<button type="button" (click)="dataService.createTodo()">Create Todo</button>
-			</li>
-		</ul>
+				<li class="create-todo-container">
+					<button class="create-todo-button" type="button" (click)="dataService.createTodo()">➕ Create Todo</button>
+				</li>
+			</ul>
+		</fieldset>
 	</form>
 
 	<ng-content/>

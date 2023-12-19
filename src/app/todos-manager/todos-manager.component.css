@@ -3,3 +3,23 @@
 	max-width: calc(var(--prose-max-width) - 5vw);
 	margin-inline: auto;
 }
+
+.create-todo-button {
+	font-weight: 600;
+	font-size: 1.3em;
+	cursor: pointer;
+	transition: 0.3s linear;
+	opacity: 0.8;
+}
+
+.create-todo-button:hover {
+	opacity: 1;
+}
+
+.todo-container + .todo-container {
+	margin-block-start: calc(var(--flow-block-spacing) / 2);
+}
+
+.manager-title {
+	margin-block-end: 1em;
+}

@@ -1,4 +1,4 @@
-<li class="todo" [class.completed]="todo.isComplete">
+<div class="todo" [class.completed]="todo.isComplete">
 	<label>
 		<span class="visuallyhidden">Todo Name</span>
 		<textarea class="todo-name-input" type="text" required #todoName [(ngModel)]="todo.name" (blur)="dataService.saveTodos()" [rows]="todo.name.length / 15"></textarea>
@@ -20,4 +20,4 @@
 			</button>
 		</li>
 	</ul>
-</li>
+</div>
